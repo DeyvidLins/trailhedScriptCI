@@ -5,7 +5,7 @@ import find_folder_git
 
 # Verifica os componetes que foi realizado o retrieve
 def check_componenentes_retrieeve():   
-    dir = r"manifestXML\unpackaged\unpackaged"
+    dir = r"../manifestXML/unpackaged/unpackaged"
 
     rename_file(dir)
     find_folders = os.listdir(dir)   
@@ -30,7 +30,7 @@ def rename_file(dir):
 
 # Move para o diretório raiz: manifestXML
 def move_file(dir,folder):          
-    shutil.move(fr'{dir}\{folder}', 'manifestXML') 
+    shutil.move(fr'{dir}\{folder}', '../manifestXML') 
     find_folders = os.listdir(dir)
 
     if find_folders == []: # Vai entrar nesse if se não estiver mais nada no diretório que foi realizado o retrieve
@@ -39,7 +39,7 @@ def move_file(dir,folder):
 
 # Remove às pasta vazias unpackaged
 def remove_dir():      
-    delete_folder_zip_empty = r"manifestXML\unpackaged"
+    delete_folder_zip_empty = r"../manifestXML/unpackaged"
     shutil.rmtree(delete_folder_zip_empty)
     find_git()
 

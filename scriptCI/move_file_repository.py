@@ -9,7 +9,7 @@ def source_for_destination(folder_src,name_folder):
 
 
 def find_components(destination_directory_source):
-    folder_manifest = 'manifestXML/'
+    folder_manifest = '../manifestXML/'
     files_folder_retrieve = os.listdir(folder_manifest)  # Componentes que foram realizado o retrieve    
     files_folder_source = os.listdir(destination_directory_source)  # Diretório da pasta componentes de source onde contém metadados
     list_component_retrieve = []   
@@ -71,4 +71,4 @@ def move_new_files(name_component,list_component_retrieve,diretory_retrieve,dire
     
 
 
-print(source_for_destination(fr'C:\Users\deyvi\OneDrive\Área de Trabalho\Todos os arquivos\pasta01\TodosMeusProjetos\Python\sfdxNewProject\Retrieeve xml','source'))
+#print(source_for_destination(fr'C:\Users\deyvi\OneDrive\Área de Trabalho\Todos os arquivos\pasta01\TodosMeusProjetos\Python\sfdxNewProject\Retrieeve xml','source'))

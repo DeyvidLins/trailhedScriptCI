@@ -1,39 +1,30 @@
 import xml.etree.ElementTree as ET
 
-def update_xml_tags(file1, file2):
-    # Parsear os arquivos XML
-    tree1 = ET.parse(file1)
-    tree2 = ET.parse(file2)
+# Função para adicionar elementos do arquivo 01 ao arquivo 02
+def update_xml_tags(arquivo_01, arquivo_02):
+    print(arquivo_01)
+    print(arquivo_02)
+    tree_01 = ET.parse(arquivo_01)
+    root_01 = tree_01.getroot()
 
-    # Obter a raiz dos elementos
-    root1 = tree1.getroot()
-    root2 = tree2.getroot()
+    tree_02 = ET.parse(arquivo_02)
+    root_02 = tree_02.getroot()
 
-    # Dicionário para armazenar as tags do primeiro arquivo
-    tags_file1 = {}
+    # Verificar cada elemento do arquivo 01
+    for elemento_01 in root_01:
+        encontrado = False
+        # Verificar se o elemento já existe no arquivo 02
+        for elemento_02 in root_02:
+            if elemento_01.tag == elemento_02.tag:
+                # Se encontrado, marcar como encontrado e sair do loop
+                encontrado = True
+                break
+        # Se não encontrado, adicionar ao arquivo 02
+        if not encontrado:
+            root_02.append(elemento_01)
 
-    # Iterar sobre as tags do primeiro arquivo e armazenar em tags_file1
-    for elem in root1.iter():
-        if elem.tag not in tags_file1:
-            tags_file1[elem.tag] = []
-        tags_file1[elem.tag].append(elem)
+    # Escrever as alterações de volta no arquivo 02
+    tree_02.write(arquivo_02)
 
-    # Iterar sobre as tags do segundo arquivo e comparar com as do primeiro
-    for elem in root2.iter():
-        if elem.tag in tags_file1:
-            for tag in tags_file1[elem.tag]:
-                if ET.tostring(elem) == ET.tostring(tag):
-                    # Remover a tag do dicionário se já existir em ambos os arquivos
-                    tags_file1[elem.tag].remove(tag)
-                    break
 
-    # Adicionar as tags restantes do primeiro arquivo ao segundo arquivo
-    for tag_list in tags_file1.values():
-        for tag in tag_list:
-            root2.append(tag)
-
-    # Escrever o resultado no arquivo de saída
-    tree2.write('arquivo02_atualizado.xml', encoding='utf-8', xml_declaration=True)
-
-# Chamar a função com os nomes dos arquivos XML
-#update_xml_tags('arquivo01.xml', 'arquivo02.xml')
+update_xml_tags(r'../manifestXML//objects/Account.object',r'C:\Users\deyvi\OneDrive\Área de Trabalho\Todos os arquivos\pasta01\TodosMeusProjetos\Python\sfdxNewProject\Retrieeve xml/source/objects/Account.object')
