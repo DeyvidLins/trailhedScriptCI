@@ -31,4 +31,4 @@ def update_xml_tags(arquivo_01, arquivo_02):
     tree_02.write(caminho_absoluto_arquivo_02)
 
 # Exemplo de uso
-update_xml_tags('../manifestXML//objects/Account.object', 'C:/Users/deyvi/OneDrive/Área de Trabalho/Todos os arquivos/pasta01/TodosMeusProjetos/Python/sfdxNewProject/Retrieeve xml/source/objects/Account.object')
+update_xml_tags('../manifestXML//objects/Account.object', 'source/objects/Account.object')
