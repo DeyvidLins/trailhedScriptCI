@@ -1,0 +1,4 @@
+import retrieve
+
+
+retrieve.retrieveXML()
