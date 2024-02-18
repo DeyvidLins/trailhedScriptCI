@@ -1,13 +1,17 @@
+import os
 import xml.etree.ElementTree as ET
 
 # Função para adicionar elementos do arquivo 01 ao arquivo 02
 def update_xml_tags(arquivo_01, arquivo_02):
-    print(arquivo_01)
-    print(arquivo_02)
-    tree_01 = ET.parse(arquivo_01)
+    # Obter caminhos absolutos para os arquivos
+    caminho_absoluto_arquivo_01 = os.path.abspath(arquivo_01)
+    caminho_absoluto_arquivo_02 = os.path.abspath(arquivo_02)
+
+    # Carregar árvores XML
+    tree_01 = ET.parse(caminho_absoluto_arquivo_01)
     root_01 = tree_01.getroot()
 
-    tree_02 = ET.parse(arquivo_02)
+    tree_02 = ET.parse(caminho_absoluto_arquivo_02)
     root_02 = tree_02.getroot()
 
     # Verificar cada elemento do arquivo 01
@@ -24,7 +28,7 @@ def update_xml_tags(arquivo_01, arquivo_02):
             root_02.append(elemento_01)
 
     # Escrever as alterações de volta no arquivo 02
-    tree_02.write(arquivo_02)
+    tree_02.write(caminho_absoluto_arquivo_02)
 
-
-update_xml_tags(r'../manifestXML//objects/Account.object',r'C:\Users\deyvi\OneDrive\Área de Trabalho\Todos os arquivos\pasta01\TodosMeusProjetos\Python\sfdxNewProject\Retrieeve xml/source/objects/Account.object')
+# Exemplo de uso
+update_xml_tags('../manifestXML//objects/Account.object', 'C:/Users/deyvi/OneDrive/Área de Trabalho/Todos os arquivos/pasta01/TodosMeusProjetos/Python/sfdxNewProject/Retrieeve xml/source/objects/Account.object')
