@@ -1,5 +1,5 @@
 import os
-import move_file_repository
+import move_new_file_repository
 import time
 
 
@@ -21,5 +21,5 @@ def find_source(folder_src):
 # Concatena o diretório com à pasta para depois mover
 def files(folder_src,name_folder):
     time.sleep(10)
-    return move_file_repository.source_for_destination(folder_src,name_folder)
+    return move_new_file_repository.source_for_destination(folder_src,name_folder)
 

@@ -1,4 +1,4 @@
-import update_tags_file
+import construction_tag_component
 import os
 import shutil
 
@@ -32,6 +32,6 @@ def compare_file_difference(diretory_retrieve,directory_source,file):
     dir_retrieve = fr'{diretory_retrieve}/{file}'
     dir_source = fr'{directory_source}/{file}'
   
-    update_tags_file.update_xml_tags(dir_retrieve,dir_source)
+    construction_tag_component.print_content_tag(dir_retrieve,dir_source)
 
 

@@ -224,6 +224,10 @@
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction2</actionName>
+        <type>Default</type>
+    </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -495,6 +499,16 @@
     <fields>
         <fullName>YearStarted</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>FSLIS_teste__c</fullName>
+        <externalId>false</externalId>
+        <label>FSLIS_teste</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
