@@ -1,3 +1,5 @@
+import diff_tag_component
+
 concat_string = ''
 transformeted_string_to_list = []
 resultado = {}
@@ -59,22 +61,36 @@ def construct_dict_names_tags(list_tags):
 def checks_tags(tag,existed_tag):    
     # Condição para verificar se à tag name é nova no package.xml da pasta source
     if ('<name>' in tag) and (existed_tag == False):       
-        tag_name = tag.lstrip('<name>').rstrip('</name>')     
+        value_tag_name = tag.lstrip('<name>').rstrip('</name>')   
+        #create_new_tag(value_tag_name, resultado[value_tag_name]) # A chave será o valor da tag name. Ex.: CustomObject. E resultado[tag_name] será os valores do members
 
     # Condição para verificar se à tag name já existi no package.xml da pasta source
-    elif ('<name>' in tag) and (existed_tag == True): 
-        tag_name = tag.lstrip('<name>').rstrip('</name>') 
-        for element in resultado[f'{tag_name}']:
+    elif ('<name>' in tag) and (existed_tag == True):   
+        value_tag_name = tag.lstrip('<name>').rstrip('</name>') 
+        for element in resultado[f'{value_tag_name}']:
             members = f'<members>{element}</members>'
             if members not in file_xml():        
-                print(members)
+                existing_tag(value_tag_name,members)
 
 def file_xml():
     with open('package.xml', 'r') as file:
         conteudo = file.read()
     return conteudo
 
+def create_new_tag(value_tag_name, value_members):
+    members = ''
+    espace_four = ' ' * 4
+    espace_eight = ' ' * 8
+    if type(value_members) is list:
+        for item in value_members:
+            members += f'{espace_eight}<members>{item}</members>\n'
+    
+    new_tag =  f'{espace_four}<types>\n{members}{espace_eight}<name>{value_tag_name}</name>\n{espace_four}</types>\n'
+    #print(new_tag)
+    diff_tag_component.add_new_tag_component('types', new_tag, 'package.xml')
 
-
+def existing_tag(value_tag_name, value_member):
+    espace_eight = ' ' * 8
+    diff_tag_component.add_existing_tag_component(f'<name>{value_tag_name}', f'{espace_eight}{value_member}', 'package.xml')
 
 

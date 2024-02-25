@@ -58,7 +58,7 @@ def move_new_files(name_component,list_component_retrieve,diretory_retrieve,dire
     
     
     if  (len(items_found_files_not_duplicados) == 0):
-        # Se à lista items_found_files_not_duplicados NÃO estive vazia, os componentes duplicados e sobreescreve o arquivo em source    
+        # Se à lista items_found_files_not_duplicados NÃO estive vazia, move os componentes duplicados e sobreescreve o arquivo em source    
         for files_duplicates in items_found_files_duplicados:
             compare_file_duplicates.check_type_files(diretory_retrieve,diretory_source,files_duplicates)
 
@@ -71,4 +71,4 @@ def move_new_files(name_component,list_component_retrieve,diretory_retrieve,dire
     
 
 
-#print(source_for_destination(fr'C:\Users\deyvi\OneDrive\Área de Trabalho\Todos os arquivos\pasta01\TodosMeusProjetos\Python\sfdxNewProject\Retrieeve xml','source'))
+print(source_for_destination(fr'C:\Users\deyvi\OneDrive\Área de Trabalho\Todos os arquivos\pasta01\TodosMeusProjetos\Python\sfdxNewProject\Retrieeve xml','source'))

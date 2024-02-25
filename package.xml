@@ -180,6 +180,7 @@
         <members>WorkStepTemplate</members>
         <members>WorkThanks</members>
         <members>einsteinplay__Einstein_Settings__c</members>
+        <members>Account2</members>
         <name>CustomObject</name>
     </types>
     <version>58.0</version>

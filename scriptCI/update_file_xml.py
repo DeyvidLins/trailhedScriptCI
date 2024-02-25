@@ -19,16 +19,28 @@ def update_tags_xml():
 
 # Separa às tags e captura os valores 
 def separate_tags_members_and_name(body_tag):
-    quantity_list = len(body_tag)  # Quantidade da lista
-    for i in range(0,quantity_list):
-        name_tag = body_tag[i]
-        for key in name_tag.keys():
+    quantity_body_tag = len(body_tag)  
+    try:
+        sacrifice_variable = body_tag[0] # Variavel de sacrificio, apenas para verificar se é uma lista
+        for i in range(0,quantity_body_tag):
+            name_tag = body_tag[i] # Dicionário que pega o valor da Lista
+            for key in name_tag.keys():
+                if key == 'members':
+                    members = name_tag[f'{key}']
+                    tag_full(members,key)
+                else:
+                    name = name_tag[f'{key}']
+                    tag_full(name,key)
+    except: # Entra nessa execeção se não for uma lista
+        for key in body_tag.keys():
             if key == 'members':
-                members = name_tag[f'{key}']
+                members = body_tag[f'{key}']
                 tag_full(members,key)
             else:
-                name = name_tag[f'{key}']
+                name = body_tag[f'{key}']
                 tag_full(name,key)
+
+        
 
     tag_full('closed','') # Serve para informar que não encontrou mais nenhum nome do componente no xml
 
@@ -56,4 +68,4 @@ def tag_full(value_tag,type):
   
     
     
-#update_tags_xml()
+update_tags_xml()
