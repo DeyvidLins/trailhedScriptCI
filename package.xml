@@ -183,5 +183,14 @@
         <members>Account2</members>
         <name>CustomObject</name>
     </types>
+    <types>
+        <members>Teste011</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>Teste24</members>
+        <members>Teste340</members>
+        <name>Group</name>
+    </types>
     <version>58.0</version>
 </Package>

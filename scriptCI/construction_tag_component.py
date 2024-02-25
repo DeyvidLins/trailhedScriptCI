@@ -20,7 +20,7 @@ def print_content_tag(name_file_retrieve,name_file_source,tag_parent):
             build_file(key,dic_tags[f'{key}'],name_file_source) # Envia o conteúdo/valor da tag/dicionario
          
 
-def build_file(name_tag_initial,body_tag,name_file_source): # TRATAR TRATAR TRATAR
+def build_file(name_tag_initial,body_tag,name_file_source): # TRATAR TRATAR TRATAR PORQUE DAR ERRO QUANDO TEM MUITA TAG NO COMPONENTE
     content_space_parent = " " * 4
     content_space_child  = " " * 8
     tag_full_content_child  = ''
@@ -45,15 +45,15 @@ def build_file(name_tag_initial,body_tag,name_file_source): # TRATAR TRATAR TRAT
     tag_completed_component = f"{content_space_parent}<{name_tag_initial}>\n{remove_last_line_break}\n{content_space_parent}</{name_tag_initial}>\n"
     
     #print(tag_component)
-    #verificated_tags(name_tag_initial,tag_completed_component,name_file_source,find_tag)
+    verificated_tags(name_tag_initial,tag_completed_component,name_file_source,find_tag)
     #diff_tag_component.add_new_tag_component(name_tag_initial,tag_completed_component,name_file_source)
 
-# TRATAR TRATAR TRATAR
-def verificated_tags(name_tag_initial,tag_completed_component,name_file_source,find_tag_duplicate):
+def verificated_tags(name_tag_initial,tag_completed_component,name_file_source,find_tag_duplicate):     # TRATAR TRATAR TRATAR PODE VIM TAG DUPLICADA DE   <actionOverrides>
+
     #print(find_tag)
     with open(name_file_source, 'r') as file:
         conteudo = file.read()
     if find_tag_duplicate in conteudo:
-        print(find_tag_duplicate)
-        #overwriting_tags.overwrite(name_file_source,name_tag_initial,find_tag_duplicate,tag_completed_component)
+        #print(find_tag_duplicate)      
+        diff_tag_component.overwrite(find_tag_duplicate,tag_completed_component,name_file_source)
 

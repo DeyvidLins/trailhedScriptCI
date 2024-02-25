@@ -48,4 +48,29 @@ def add_existing_tag_component(tag, tag_completed_component, name_file_source):
     with open(name_file_source, 'w') as f:
         f.writelines(lines)
 
-# Teste do método
+def overwrite(tag, tag_completed_component, name_file_source):   
+    with open(name_file_source, 'r') as f:
+        lines = f.readlines()
+
+    # Encontrar a posição da tag
+    for i, line in enumerate(lines):
+        if f'{tag}' in line:
+            postion_index_tag_main = (i -1)
+            tag_content = lines[postion_index_tag_main]
+            find_closing_tag(lines,tag_content,postion_index_tag_main,name_file_source,tag_completed_component) # Nome e posição do index da tag pai
+            break
+
+def find_closing_tag(lines,tag_content,index_postion_tag,name_file_source,tag_completed_component):
+    if tag_content:  
+        closed_tag = tag_content.replace('<','</')         
+        while True:          
+            compare_tag = lines[index_postion_tag]
+            if closed_tag == compare_tag:            
+                lines[index_postion_tag] = f'{tag_completed_component}'           
+                break               
+            else:
+                print(lines.pop(index_postion_tag))    # Remove às tags/valores que estão à tag antiga, para depois ser susbstituida
+
+    with open(name_file_source, 'w') as f:
+       print()
+       f.writelines(lines)

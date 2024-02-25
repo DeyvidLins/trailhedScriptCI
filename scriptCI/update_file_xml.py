@@ -68,4 +68,4 @@ def tag_full(value_tag,type):
   
     
     
-update_tags_xml()
+#update_tags_xml()

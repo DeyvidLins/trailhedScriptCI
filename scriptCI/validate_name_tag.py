@@ -62,7 +62,7 @@ def checks_tags(tag,existed_tag):
     # Condição para verificar se à tag name é nova no package.xml da pasta source
     if ('<name>' in tag) and (existed_tag == False):       
         value_tag_name = tag.lstrip('<name>').rstrip('</name>')   
-        #create_new_tag(value_tag_name, resultado[value_tag_name]) # A chave será o valor da tag name. Ex.: CustomObject. E resultado[tag_name] será os valores do members
+        create_new_tag(value_tag_name, resultado[value_tag_name]) # A chave será o valor da tag name. Ex.: CustomObject. E resultado[tag_name] será os valores do members
 
     # Condição para verificar se à tag name já existi no package.xml da pasta source
     elif ('<name>' in tag) and (existed_tag == True):   
