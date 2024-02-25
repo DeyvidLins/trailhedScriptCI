@@ -9,8 +9,8 @@ def source_for_destination(folder_src,name_folder):
 
 
 def find_components(destination_directory_source):
-    folder_manifest = '../manifestXML/'
-    files_folder_retrieve = os.listdir(folder_manifest)  # Componentes que foram realizado o retrieve    
+    folder_metadata = '../metadataXML/'
+    files_folder_retrieve = os.listdir(folder_metadata)  # Componentes que foram realizado o retrieve    
     files_folder_source = os.listdir(destination_directory_source)  # Diretório da pasta componentes de source onde contém metadados
     list_component_retrieve = []   
     list_files_source = []
@@ -21,7 +21,7 @@ def find_components(destination_directory_source):
     for element in files_folder_retrieve: 
         if element != 'backup_package.xml':
             name_component =  element  
-            diretory_retrieve = fr'{folder_manifest}/{element}'
+            diretory_retrieve = fr'{folder_metadata}/{element}'
             metadata_retrieve = os.listdir(diretory_retrieve)
 
             for m in metadata_retrieve:  

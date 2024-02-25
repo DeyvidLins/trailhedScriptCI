@@ -32,6 +32,6 @@ def retrieveXML():
         print("Nenhuma correspondência encontrada.")
 
 
-    os.system(f'sf project retrieve start --manifest ../manifest/package.xml --target-org {item_list[1]} --target-metadata-dir ../manifestXML --unzip')
+    os.system(f'sf project retrieve start --manifest ../manifest/package.xml --target-org {item_list[1]} --target-metadata-dir ../metadataXML --unzip')
 
     verifique_componentes.check_componenentes_retrieeve()
