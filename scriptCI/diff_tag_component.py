@@ -1,6 +1,5 @@
-def add_new_tag_component(tag,tag_completed_component,name_file_source):# Abrir o arquivo para leitura
+def add_new_tag_component_and_package_xml(tag,tag_completed_component,name_file_source):# Abrir o arquivo para leitura
     last_tags= f'</{tag}>'
-    
     with open(name_file_source, 'r') as f:
         lines = f.readlines()
 
@@ -18,7 +17,7 @@ def add_new_tag_component(tag,tag_completed_component,name_file_source):# Abrir 
     with open(name_file_source, 'w') as f:
         f.writelines(lines)
 
-def add_existing_tag_component(tag, tag_completed_component, name_file_source):
+def existing_tag_package_xml(tag, tag_completed_component, name_file_source):
     # Abrir o arquivo para leitura
     find_tag_name = tag
 
@@ -48,7 +47,7 @@ def add_existing_tag_component(tag, tag_completed_component, name_file_source):
     with open(name_file_source, 'w') as f:
         f.writelines(lines)
 
-def overwrite(tag, tag_completed_component, name_file_source):   
+def overwrite(tag, tag_completed_component, name_file_source):  
     with open(name_file_source, 'r') as f:
         lines = f.readlines()
 
@@ -62,15 +61,15 @@ def overwrite(tag, tag_completed_component, name_file_source):
 
 def find_closing_tag(lines,tag_content,index_postion_tag,name_file_source,tag_completed_component):
     if tag_content:  
-        closed_tag = tag_content.replace('<','</')         
+        closed_tag = tag_content.replace('<','</')    
         while True:          
             compare_tag = lines[index_postion_tag]
             if closed_tag == compare_tag:            
                 lines[index_postion_tag] = f'{tag_completed_component}'           
                 break               
             else:
-                print(lines.pop(index_postion_tag))    # Remove às tags/valores que estão à tag antiga, para depois ser susbstituida
+                lines.pop(index_postion_tag)   # Remove às tags/valores que estão à tag antiga, para depois ser susbstituida
 
-    with open(name_file_source, 'w') as f:
-       print()
+    with open(name_file_source, 'w') as f:       
        f.writelines(lines)
+       

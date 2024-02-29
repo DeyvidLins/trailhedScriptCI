@@ -87,10 +87,10 @@ def create_new_tag(value_tag_name, value_members):
     
     new_tag =  f'{espace_four}<types>\n{members}{espace_eight}<name>{value_tag_name}</name>\n{espace_four}</types>\n'
     #print(new_tag)
-    diff_tag_component.add_new_tag_component('types', new_tag, 'package.xml')
+    diff_tag_component.add_new_tag_component_and_package_xml('types', new_tag, 'package.xml')
 
 def existing_tag(value_tag_name, value_member):
     espace_eight = ' ' * 8
-    diff_tag_component.add_existing_tag_component(f'<name>{value_tag_name}', f'{espace_eight}{value_member}', 'package.xml')
+    diff_tag_component.existing_tag_package_xml(f'<name>{value_tag_name}', f'{espace_eight}{value_member}', 'package.xml')
 
 

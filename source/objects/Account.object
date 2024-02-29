@@ -270,7 +270,7 @@
     </fields>
     <fields>
         <fullName>BillingAddress</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
+        <trackFeedHistory>true</trackFeedHistory>
     </fields>
     <fields>
         <fullName>CleanStatus</fullName>
@@ -509,6 +509,12 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BillingAddress22</fullName>
+        <type>Default2</type>
+        <type>Default33</type>
+        <type>Default39</type>
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>

@@ -63,8 +63,8 @@ def move_new_files(name_component,list_component_retrieve,diretory_retrieve,dire
             compare_file_duplicates.check_type_files(diretory_retrieve,diretory_source,files_duplicates)
 
     # Se à lista items_found_files_not_duplicados NÃO estive vazia, move apenas os componentes que não existem em source 
-    for files_duplicates in items_found_files_not_duplicados:        
-        compare_file_duplicates.check_type_files(diretory_retrieve,diretory_source,files_duplicates)
+    for files_not_duplicates in items_found_files_not_duplicados:        
+        compare_file_duplicates.check_type_files(diretory_retrieve,diretory_source,files_not_duplicates)
     
 
     
