@@ -5,7 +5,7 @@ import verifique_componentes
 
 def retrieveXML():
     # Executa o comando e captura a saída
-    output = os.popen('sfdx force:org:list').read()
+    output = os.popen('sf force org list"').read()
 
     # Procura pela última linha que contém (U)
     match = re.findall(r'^\|.*\(U\).*$', output, re.MULTILINE)

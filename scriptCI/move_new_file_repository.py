@@ -71,4 +71,4 @@ def move_new_files(name_component,list_component_retrieve,diretory_retrieve,dire
     
 
 
-print(source_for_destination(fr'C:\Users\deyvi\OneDrive\Área de Trabalho\Todos os arquivos\pasta01\TodosMeusProjetos\Python\sfdxNewProject\Retrieeve xml','source'))
+#print(source_for_destination(fr'C:\Users\deyvi\OneDrive\Área de Trabalho\Todos os arquivos\pasta01\TodosMeusProjetos\Python\sfdxNewProject\Retrieeve xml','source'))
